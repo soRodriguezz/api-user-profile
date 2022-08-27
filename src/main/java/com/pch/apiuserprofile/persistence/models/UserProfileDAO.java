@@ -29,7 +29,8 @@ public class UserProfileDAO {
 
     private String address;
 
-    //TODO
+    private int age;
+
     @OneToMany(mappedBy = "userProfile")
     private List<WorkExperienceDAO> workExperience;
 
@@ -44,8 +45,6 @@ public class UserProfileDAO {
 
     @Column(name = "experience_years")
     private int experienceYear;
-
-    private int age;
 
     public Integer getIdUserProfile() {
         return idUserProfile;

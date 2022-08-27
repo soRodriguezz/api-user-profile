@@ -5,7 +5,7 @@ public class AcademicBackground {
     private String school;
     private String degree;
     private int startMonth;
-    private int endtMonth;
+    private int endMonth;
     private int startYear;
     private int endYear;
     private String grade;
@@ -44,12 +44,12 @@ public class AcademicBackground {
         this.startMonth = startMonth;
     }
 
-    public int getEndtMonth() {
-        return endtMonth;
+    public int getEndMonth() {
+        return endMonth;
     }
 
-    public void setEndtMonth(int endtMonth) {
-        this.endtMonth = endtMonth;
+    public void setEndMonth(int endMonth) {
+        this.endMonth = endMonth;
     }
 
     public int getStartYear() {

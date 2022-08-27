@@ -8,7 +8,7 @@ public class Certification {
     private int issueYear;
     private int expirationMonth;
     private int expirationYear;
-    private String credencialURL;
+    private String credentialURL;
     private UserProfile userProfile;
 
     public int getIdCertification() {
@@ -67,12 +67,12 @@ public class Certification {
         this.expirationYear = expirationYear;
     }
 
-    public String getCredencialURL() {
-        return credencialURL;
+    public String getCredentialURL() {
+        return credentialURL;
     }
 
-    public void setCredencialURL(String credencialURL) {
-        this.credencialURL = credencialURL;
+    public void setCredentialURL(String credentialURL) {
+        this.credentialURL = credentialURL;
     }
 
     public UserProfile getUserProfile() {
