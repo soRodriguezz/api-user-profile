@@ -19,15 +19,16 @@ import java.util.List;
 public interface UserProfileMapper {
 
     @Mappings({
-            @Mapping(source = "idUserProfile",target = "idUserProfile"),
-            @Mapping(source = "name",target = "name"),
-            @Mapping(source = "lastname",target = "lastname"),
-            @Mapping(source = "document",target = "document"),
-            @Mapping(source = "email",target = "email"),
-            @Mapping(source = "changeResidence",target = "changeResidence"),
-            @Mapping(source = "dateBirth",target = "dateBirth"),
-            @Mapping(source = "address",target = "address"),
-            @Mapping(source = "age",target = "age"),
+            @Mapping(source = "idUserProfile", target = "idUserProfile"),
+            @Mapping(source = "name", target = "name"),
+            @Mapping(source = "lastname", target = "lastname"),
+            @Mapping(source = "document", target = "document"),
+            @Mapping(source = "email", target = "email"),
+            @Mapping(target = "experienceYears", source = "experienceYears"),
+            @Mapping(source = "changeResidence", target = "changeResidence"),
+            @Mapping(source = "dateBirth", target = "dateBirth"),
+            @Mapping(source = "address", target = "address"),
+            @Mapping(source = "age", target = "age"),
     })
     UserProfile toUserProfile(UserProfileDAO dao);
 

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user-profile")
@@ -28,5 +29,25 @@ public class UserController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(userProfile1, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<UserProfile>> getById(@PathVariable int id){
+        return new ResponseEntity<>(service.getUserProfileById(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<UserProfile> updateUserProfile(@RequestBody UserProfile userProfile){
+        if(userProfile.getIdUserProfile() != 0){
+            UserProfile user2 = service.updateUserProfile(userProfile);
+            return new ResponseEntity<>(user2,HttpStatus.OK);
+        }
+        return new ResponseEntity<>(userProfile,HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> updateUserProfile(@PathVariable("id") int id){
+        service.deleteUserProfileById(id);
+        return new ResponseEntity<>(true,HttpStatus.OK);
     }
 }

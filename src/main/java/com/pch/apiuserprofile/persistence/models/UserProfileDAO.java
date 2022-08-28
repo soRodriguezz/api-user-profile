@@ -1,6 +1,10 @@
 package com.pch.apiuserprofile.persistence.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +23,11 @@ public class UserProfileDAO {
 
     private String document;
 
+    @Email
     private String email;
+
+    @Column(name = "experience_years")
+    private int experienceYears;
 
     @Column(name = "change_residence")
     private boolean changeResidence;
@@ -29,6 +37,9 @@ public class UserProfileDAO {
 
     private String address;
 
+    @Positive
+    @Min(0)
+    @Max(120)
     private int age;
 
     @OneToMany(mappedBy = "userProfile")
@@ -43,8 +54,6 @@ public class UserProfileDAO {
     @Column(name = "description_technologies")
     private String descriptionTechnologies;
 
-    @Column(name = "experience_years")
-    private int experienceYear;
 
     public Integer getIdUserProfile() {
         return idUserProfile;
@@ -118,12 +127,12 @@ public class UserProfileDAO {
         this.descriptionTechnologies = descriptionTechnologies;
     }
 
-    public int getExperienceYear() {
-        return experienceYear;
+    public int getExperienceYears() {
+        return experienceYears;
     }
 
-    public void setExperienceYear(int experienceYear) {
-        this.experienceYear = experienceYear;
+    public void setExperienceYears(int experienceYears) {
+        this.experienceYears = experienceYears;
     }
 
     public int getAge() {
@@ -157,4 +166,5 @@ public class UserProfileDAO {
     public void setCertification(List<CertificationDAO> certification) {
         this.certification = certification;
     }
+
 }

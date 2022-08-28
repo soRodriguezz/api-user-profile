@@ -10,9 +10,11 @@ public interface UserProfileGateway {
 
     List<UserProfile> getAll();
 
-    Optional<UserProfile> getUserById(int id);
+    Optional<UserProfile> getUserProfileById(int id);
 
     UserProfile saveUserProfile(UserProfile userProfile);
 
-    void deleteUserById(int id);
+    UserProfile updateUserProfile(UserProfile userProfile);
+
+    void deleteUserProfileById(int id);
 }

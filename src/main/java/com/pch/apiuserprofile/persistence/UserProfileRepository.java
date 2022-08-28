@@ -13,9 +13,9 @@ import java.util.Optional;
 @Repository
 public class UserProfileRepository implements UserProfileGateway {
 
-    private UserProfileCrudRepository crudRepository;
+    private final UserProfileCrudRepository crudRepository;
 
-    private UserProfileMapper mapper;
+    private final UserProfileMapper mapper;
 
     public UserProfileRepository(UserProfileCrudRepository crudRepository, UserProfileMapper mapper) {
         this.crudRepository = crudRepository;
@@ -29,18 +29,27 @@ public class UserProfileRepository implements UserProfileGateway {
     }
 
     @Override
-    public Optional<UserProfile> getUserById(int id) {
-        return Optional.empty();
+    public Optional<UserProfile> getUserProfileById(int id) {
+        UserProfileDAO userProfileDAO = crudRepository.findById(id).get();
+        return Optional.ofNullable(mapper.toUserProfile(userProfileDAO));
     }
 
     @Override
     public UserProfile saveUserProfile(UserProfile userProfile) {
+
+        UserProfileDAO userProfileDAO = crudRepository.save(mapper.toUserProfileDAO(userProfile));
+
+        return mapper.toUserProfile(userProfileDAO);
+    }
+
+    @Override
+    public UserProfile updateUserProfile(UserProfile userProfile) {
         UserProfileDAO userProfileDAO = crudRepository.save(mapper.toUserProfileDAO(userProfile));
         return mapper.toUserProfile(userProfileDAO);
     }
 
     @Override
-    public void deleteUserById(int id) {
-
+    public void deleteUserProfileById(int id) {
+        crudRepository.deleteById(id);
     }
 }
