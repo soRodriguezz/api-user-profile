@@ -45,8 +45,38 @@ public class UserController {
         return new ResponseEntity<>(userProfile,HttpStatus.BAD_REQUEST);
     }
 
+    @GetMapping("/change-residence")
+    public ResponseEntity<List<UserProfile>> findByChangeResidenceTrue() {
+        List<UserProfile> userProfiles = service.findByChangeResidenceTrue();
+        return new ResponseEntity<>(userProfiles, HttpStatus.OK);
+    }
+
+    @GetMapping("/search-city-country/{cityCountry}")
+    public ResponseEntity<List<UserProfile>> findByAddressContaining(@PathVariable String cityCountry){
+        List<UserProfile> userProfiles = service.findByAddressContaining(cityCountry);
+        return new ResponseEntity<>(userProfiles, HttpStatus.OK);
+    }
+
+    @GetMapping("/search-technology/{technology}")
+    public ResponseEntity<List<UserProfile>> findByDescriptionTechnologiesContaining(@PathVariable String technology){
+        List<UserProfile> userProfiles = service.findByDescriptionTechnologiesContaining(technology);
+        return new ResponseEntity<>(userProfiles, HttpStatus.OK);
+    }
+
+    @GetMapping("/exprerience-years/{experience}")
+    public ResponseEntity<List<UserProfile>> findByExperienceYearsGreaterThan(@PathVariable int experience){
+        List<UserProfile> userProfiles = service.findByExperienceYearsGreaterThan(experience);
+        return new ResponseEntity<>(userProfiles, HttpStatus.OK);
+    }
+
+    @GetMapping("/search-degree/{degree}")
+    public ResponseEntity<List<UserProfile>> findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(@PathVariable String degree){
+        List<UserProfile> userProfiles = service.findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(degree);
+        return new ResponseEntity<>(userProfiles, HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> updateUserProfile(@PathVariable("id") int id){
+    public ResponseEntity<Boolean> deleteUserProfile(@PathVariable("id") int id){
         service.deleteUserProfileById(id);
         return new ResponseEntity<>(true,HttpStatus.OK);
     }

@@ -1,7 +1,9 @@
-package com.pch.apiuserprofile.domain.entities;
+package com.pch.apiuserprofile.dto;
 
-public class AcademicBackground {
+public class RequestAcademicBackgroundDTO {
+
     private int idAcademicBackground;
+
     private String school;
     private String degree;
     private int startMonth;
@@ -10,11 +12,7 @@ public class AcademicBackground {
     private int endYear;
     private String grade;
     private String description;
-
-    private boolean currentlyStudying;
-
     private int idUserProfile;
-    private UserProfile userProfile;
 
     public int getIdAcademicBackground() {
         return idAcademicBackground;
@@ -88,27 +86,11 @@ public class AcademicBackground {
         this.description = description;
     }
 
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
-    }
-
     public int getIdUserProfile() {
         return idUserProfile;
     }
 
     public void setIdUserProfile(int idUserProfile) {
         this.idUserProfile = idUserProfile;
-    }
-
-    public boolean isCurrentlyStudying() {
-        return currentlyStudying;
-    }
-
-    public void setCurrentlyStudying(boolean currentlyStudying) {
-        this.currentlyStudying = currentlyStudying;
     }
 }

@@ -8,11 +8,13 @@ import java.util.Optional;
 public interface CertificationGateway {
     List<Certification> getAll();
 
-    Optional<List<Certification>> getByUserProfile(int idUserProfile);
+    Optional<List<Certification>> getByIdUserProfile(int idUserProfile);
 
     Optional<Certification> getCertificationById(int id);
 
     Certification saveCertificacion(Certification certification);
+
+    Certification updateCertification(Certification certification);
 
     void deleteCertificationById(int id);
 }

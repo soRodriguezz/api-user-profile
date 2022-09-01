@@ -21,7 +21,9 @@ public interface AcademicBackgroundMapper {
             @Mapping(source = "startYear",target = "startYear"),
             @Mapping(source = "endYear",target = "endYear"),
             @Mapping(source = "grade",target = "grade"),
+            @Mapping(source = "currentlyStudying",target = "currentlyStudying"),
             @Mapping(source = "description",target = "description"),
+            @Mapping(source = "idUserProfile",target = "idUserProfile"),
             @Mapping(source = "userProfile",target = "userProfile"),
     })
     AcademicBackground toAcademicBackground(AcademicBackgroundDAO dao);

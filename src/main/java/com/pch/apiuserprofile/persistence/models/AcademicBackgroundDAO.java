@@ -15,6 +15,9 @@ public class AcademicBackgroundDAO {
 
     private String degree;
 
+    @Column(name = "currently_studying")
+    private boolean currentlyStudying;
+
     @Column(name = "start_month")
     private Integer startMonth;
 
@@ -30,6 +33,9 @@ public class AcademicBackgroundDAO {
     private String grade;
 
     private String description;
+
+    @Column(name = "id_user_profile")
+    private int idUserProfile;
 
     @ManyToOne
     @JoinColumn(name = "id_user_profile",insertable = false,updatable = false)
@@ -103,6 +109,14 @@ public class AcademicBackgroundDAO {
         return description;
     }
 
+    public int getIdUserProfile() {
+        return idUserProfile;
+    }
+
+    public void setIdUserProfile(int idUserProfile) {
+        this.idUserProfile = idUserProfile;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -113,5 +127,13 @@ public class AcademicBackgroundDAO {
 
     public void setUserProfile(UserProfileDAO userProfile) {
         this.userProfile = userProfile;
+    }
+
+    public boolean isCurrentlyStudying() {
+        return currentlyStudying;
+    }
+
+    public void setCurrentlyStudying(boolean currentlyStudying) {
+        this.currentlyStudying = currentlyStudying;
     }
 }

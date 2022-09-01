@@ -12,6 +12,7 @@ public class UserProfile {
     private boolean changeResidence;
     private Date dateBirth;
     private String address;
+
     private String descriptionTechnologies;
     private int experienceYears;
     private int age;
@@ -103,4 +104,5 @@ public class UserProfile {
     public void setAge(int age) {
         this.age = age;
     }
+
 }

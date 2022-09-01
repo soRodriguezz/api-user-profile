@@ -1,6 +1,8 @@
-package com.pch.apiuserprofile.domain.entities;
+package com.pch.apiuserprofile.dto;
 
-public class Certification {
+import com.pch.apiuserprofile.domain.entities.UserProfile;
+
+public class RequestCertificationDTO {
     private int idCertification;
     private String name;
     private String issuingOrganization;
@@ -9,9 +11,7 @@ public class Certification {
     private int expirationMonth;
     private int expirationYear;
     private String credentialURL;
-
     private int idUserProfile;
-    private UserProfile userProfile;
 
     public int getIdCertification() {
         return idCertification;
@@ -75,14 +75,6 @@ public class Certification {
 
     public void setCredentialURL(String credentialURL) {
         this.credentialURL = credentialURL;
-    }
-
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
     }
 
     public int getIdUserProfile() {

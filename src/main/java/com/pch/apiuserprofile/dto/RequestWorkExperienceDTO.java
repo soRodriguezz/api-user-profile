@@ -1,6 +1,6 @@
-package com.pch.apiuserprofile.domain.entities;
+package com.pch.apiuserprofile.dto;
 
-public class WorkExperience {
+public class RequestWorkExperienceDTO {
     private int idWorkExperience;
     private String title;
     private String employmentType;
@@ -11,9 +11,7 @@ public class WorkExperience {
     private int startYear;
     private int endYear;
     private String description;
-
     private int idUserProfile;
-    private UserProfile userProfile;
 
     public int getIdWorkExperience() {
         return idWorkExperience;
@@ -93,14 +91,6 @@ public class WorkExperience {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
     }
 
     public int getIdUserProfile() {

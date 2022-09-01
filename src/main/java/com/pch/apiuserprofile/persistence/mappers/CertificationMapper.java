@@ -21,6 +21,7 @@ public interface CertificationMapper {
             @Mapping(source = "expirationMonth",target = "expirationMonth"),
             @Mapping(source = "expirationYear",target = "expirationYear"),
             @Mapping(source = "credentialURL",target = "credentialURL"),
+            @Mapping(source = "idUserProfile",target = "idUserProfile"),
             @Mapping(source = "userProfile",target = "userProfile"),
     })
     Certification toCertification(CertificationDAO dao);

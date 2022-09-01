@@ -51,6 +51,26 @@ public class UserProfileService {
         return gateway.saveUserProfile(userProfile);
     }
 
+    public List<UserProfile> findByChangeResidenceTrue(){
+        return gateway.findByChangeResidenceTrue();
+    }
+
+    public List<UserProfile> findByAddressContaining(String cityCountry){
+        return gateway.findByAddressContaining(cityCountry);
+    }
+
+    public List<UserProfile> findByDescriptionTechnologiesContaining(String technology){
+        return gateway.findByDescriptionTechnologiesContaining(technology);
+    }
+
+    public List<UserProfile> findByExperienceYearsGreaterThan(int experience){
+        return gateway.findByExperienceYearsGreaterThan(experience);
+    }
+
+    public List<UserProfile> findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(String degree){
+        return gateway.findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(degree);
+    }
+
     public UserProfile updateUserProfile(UserProfile userProfile){
         return gateway.updateUserProfile(userProfile);
     }

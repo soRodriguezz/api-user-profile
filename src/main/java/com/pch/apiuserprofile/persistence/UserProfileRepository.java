@@ -36,9 +36,7 @@ public class UserProfileRepository implements UserProfileGateway {
 
     @Override
     public UserProfile saveUserProfile(UserProfile userProfile) {
-
         UserProfileDAO userProfileDAO = crudRepository.save(mapper.toUserProfileDAO(userProfile));
-
         return mapper.toUserProfile(userProfileDAO);
     }
 
@@ -46,6 +44,36 @@ public class UserProfileRepository implements UserProfileGateway {
     public UserProfile updateUserProfile(UserProfile userProfile) {
         UserProfileDAO userProfileDAO = crudRepository.save(mapper.toUserProfileDAO(userProfile));
         return mapper.toUserProfile(userProfileDAO);
+    }
+
+    @Override
+    public List<UserProfile> findByChangeResidenceTrue() {
+        List<UserProfileDAO> userProfileDAO = crudRepository.findByChangeResidenceTrue();
+        return mapper.toUserProfiles(userProfileDAO);
+    }
+
+    @Override
+    public List<UserProfile> findByDescriptionTechnologiesContaining(String technology) {
+        List<UserProfileDAO> userProfileDAO = crudRepository.findByDescriptionTechnologiesContaining(technology);
+        return mapper.toUserProfiles(userProfileDAO);
+    }
+
+    @Override
+    public List<UserProfile> findByAddressContaining(String cityCountry) {
+        List<UserProfileDAO> userProfileDAO = crudRepository.findByAddressContaining(cityCountry);
+        return mapper.toUserProfiles(userProfileDAO);
+    }
+
+    @Override
+    public List<UserProfile> findByExperienceYearsGreaterThan(int experience) {
+        List<UserProfileDAO> userProfileDAO = crudRepository.findByExperienceYearsGreaterThan(experience);
+        return mapper.toUserProfiles(userProfileDAO);
+    }
+
+    @Override
+    public List<UserProfile> findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(String degree) {
+        List<UserProfileDAO> userProfileDAO = crudRepository.findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(degree);
+        return mapper.toUserProfiles(userProfileDAO);
     }
 
     @Override

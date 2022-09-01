@@ -8,11 +8,13 @@ import java.util.Optional;
 public interface AcademicBackgroundGateway {
     List<AcademicBackground> getAll();
 
-    Optional<List<AcademicBackground>> getByUserProfile(int idUserProfile);
+    Optional<List<AcademicBackground>> getByIdUserProfile(int idUserProfile);
 
     Optional<AcademicBackground> getAcademicBackgroundById(int id);
 
     AcademicBackground saveAcademicBackground(AcademicBackground academicBackground);
+
+    AcademicBackground updateAcademicBackground(AcademicBackground academicBackground);
 
     void deleteAcademicBackgroundById(int id);
 }

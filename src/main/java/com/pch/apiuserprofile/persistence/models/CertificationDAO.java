@@ -31,6 +31,9 @@ public class CertificationDAO {
     @Column(name = "credential_url")
     private String credentialURL;
 
+    @Column(name = "id_user_profile")
+    private int idUserProfile;
+
     @ManyToOne
     @JoinColumn(name = "id_user_profile",insertable = false,updatable = false)
     private UserProfileDAO userProfile;
@@ -105,5 +108,13 @@ public class CertificationDAO {
 
     public void setUserProfile(UserProfileDAO userProfile) {
         this.userProfile = userProfile;
+    }
+
+    public int getIdUserProfile() {
+        return idUserProfile;
+    }
+
+    public void setIdUserProfile(int idUserProfile) {
+        this.idUserProfile = idUserProfile;
     }
 }

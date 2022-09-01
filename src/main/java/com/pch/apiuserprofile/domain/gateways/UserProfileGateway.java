@@ -16,5 +16,15 @@ public interface UserProfileGateway {
 
     UserProfile updateUserProfile(UserProfile userProfile);
 
+    List<UserProfile> findByChangeResidenceTrue();
+
+    List<UserProfile> findByDescriptionTechnologiesContaining(String technology);
+
+    List<UserProfile> findByAddressContaining(String cityCountry);
+
+    List<UserProfile> findByExperienceYearsGreaterThan(int experience);
+
+    List<UserProfile> findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(String degree);
+
     void deleteUserProfileById(int id);
 }

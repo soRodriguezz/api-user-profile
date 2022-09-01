@@ -23,6 +23,7 @@ public interface WorkExperienceMapper {
             @Mapping(source = "startYear",target = "startYear"),
             @Mapping(source = "endYear",target = "endYear"),
             @Mapping(source = "description",target = "description"),
+            @Mapping(source = "idUserProfile",target = "idUserProfile"),
             @Mapping(source = "userProfile",target = "userProfile"),
     })
     WorkExperience toWorkExperience(WorkExperienceDAO dao);
