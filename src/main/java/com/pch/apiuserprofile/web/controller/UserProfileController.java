@@ -2,6 +2,7 @@ package com.pch.apiuserprofile.web.controller;
 
 import com.pch.apiuserprofile.domain.entities.UserProfile;
 import com.pch.apiuserprofile.domain.services.UserProfileService;
+import com.pch.apiuserprofile.dto.RequestUserProfileDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user-profile")
-public class UserController {
+public class UserProfileController {
 
     @Autowired
     private UserProfileService service;
@@ -36,11 +37,11 @@ public class UserController {
         return new ResponseEntity<>(service.getUserProfileById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<UserProfile> updateUserProfile(@RequestBody UserProfile userProfile){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<UserProfile> updateUserProfile(@PathVariable int id, @RequestBody RequestUserProfileDTO dto){
+        UserProfile userProfile = service.updateUserProfile(id, dto);
         if(userProfile.getIdUserProfile() != 0){
-            UserProfile user2 = service.updateUserProfile(userProfile);
-            return new ResponseEntity<>(user2,HttpStatus.OK);
+            return new ResponseEntity<>(userProfile,HttpStatus.OK);
         }
         return new ResponseEntity<>(userProfile,HttpStatus.BAD_REQUEST);
     }

@@ -70,6 +70,7 @@ public class AcademicBackgroundService {
         academicBackground.setEndYear(dto.getEndYear());
         academicBackground.setGrade(dto.getGrade());
         academicBackground.setDescription(dto.getDescription());
+        academicBackground.setCurrentlyStudying(dto.isCurrentlyStudying());
         academicBackground.setIdUserProfile(academicBackground1.get().getIdUserProfile());
         academicBackground.setUserProfile(academicBackground1.get().getUserProfile());
 

@@ -2,6 +2,7 @@ package com.pch.apiuserprofile.domain.services;
 
 import com.pch.apiuserprofile.domain.entities.UserProfile;
 import com.pch.apiuserprofile.domain.gateways.UserProfileGateway;
+import com.pch.apiuserprofile.dto.RequestUserProfileDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -71,7 +72,21 @@ public class UserProfileService {
         return gateway.findByAcademicBackgroundDegreeAndAcademicBackgroundCurrentlyStudyingTrue(degree);
     }
 
-    public UserProfile updateUserProfile(UserProfile userProfile){
+    public UserProfile updateUserProfile(int id, RequestUserProfileDTO dto){
+        UserProfile userProfile = new UserProfile();
+
+        userProfile.setIdUserProfile(id);
+        userProfile.setName(dto.getName());
+        userProfile.setLastname(dto.getLastname());
+        userProfile.setDocument(dto.getDocument());
+        userProfile.setEmail(dto.getEmail());
+        userProfile.setChangeResidence(dto.isChangeResidence());
+        userProfile.setDateBirth(dto.getDateBirth());
+        userProfile.setAddress(dto.getAddress());
+        userProfile.setDescriptionTechnologies(dto.getDescriptionTechnologies());
+        userProfile.setExperienceYears(dto.getExperienceYears());
+        userProfile.setAge(dto.getAge());
+
         return gateway.updateUserProfile(userProfile);
     }
 

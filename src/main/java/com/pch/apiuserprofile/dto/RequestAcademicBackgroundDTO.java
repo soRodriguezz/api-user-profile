@@ -12,6 +12,9 @@ public class RequestAcademicBackgroundDTO {
     private int endYear;
     private String grade;
     private String description;
+
+    private boolean currentlyStudying;
+
     private int idUserProfile;
 
     public int getIdAcademicBackground() {
@@ -92,5 +95,13 @@ public class RequestAcademicBackgroundDTO {
 
     public void setIdUserProfile(int idUserProfile) {
         this.idUserProfile = idUserProfile;
+    }
+
+    public boolean isCurrentlyStudying() {
+        return currentlyStudying;
+    }
+
+    public void setCurrentlyStudying(boolean currentlyStudying) {
+        this.currentlyStudying = currentlyStudying;
     }
 }
