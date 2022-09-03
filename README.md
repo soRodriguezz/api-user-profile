@@ -18,7 +18,7 @@ Este repositorio contiene el proyecto de la api para crear perfiles de trabajo. 
 
 ### Postman
 
-https://www.getpostman.com/collections/804c9be55b190191e93e
+[https://www.getpostman.com/collections/804c9be55b190191e93e](https://www.getpostman.com/collections/ba0a96f62b3300f8ef12)
 
 ### Diagrama de clases
 ![](https://i.imgur.com/S4rDKpe.png)
