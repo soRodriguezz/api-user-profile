@@ -49,6 +49,7 @@ public class AcademicBackgroundService {
         academicBackground.setStartYear(dto.getStartYear());
         academicBackground.setEndYear(dto.getEndYear());
         academicBackground.setGrade(dto.getGrade());
+        academicBackground.setCurrentlyStudying(dto.isCurrentlyStudying());
         academicBackground.setDescription(dto.getDescription());
         academicBackground.setIdUserProfile(dto.getIdUserProfile());
         userProfile.ifPresent(academicBackground::setUserProfile);
